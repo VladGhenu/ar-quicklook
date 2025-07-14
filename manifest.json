@@ -1,0 +1,23 @@
+{
+    "name": "Oil & Gas Safety Training AR",
+    "short_name": "Safety AR",
+    "description": "Augmented Reality safety training for oil and gas industry",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#1a365d",
+    "background_color": "#ffffff",
+    "orientation": "portrait",
+    "categories": ["education", "training", "safety"],
+    "icons": [
+        {
+            "src": "/icons/icon-192.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/icons/icon-512.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ]
+}
