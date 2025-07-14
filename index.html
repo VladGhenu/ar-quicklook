@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Oil & Gas Safety Training AR</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icons/icon-192.svg">
+    <meta name="theme-color" content="#1a365d">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Safety Training AR">
+    <link rel="apple-touch-icon" href="/icons/icon-192.svg">
+    
+    <!-- iOS QuickLook AR support -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="supported-color-schemes" content="light dark">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- React and Babel -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    
+    <!-- Hammer.js for touch gestures -->
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+    
+    <!-- Model Viewer for web-based AR -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <div id="root"></div>
+    
+    <!-- Load components -->
+    <script type="text/babel" src="/src/data/scenarios.js"></script>
+    <script type="text/babel" src="/src/components/ScenarioList.js"></script>
+    <script type="text/babel" src="/src/components/ARViewer.js"></script>
+    <script type="text/babel" src="/src/App.js"></script>
+    
+    <script>
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+        
+        // Initialize Feather icons
+        feather.replace();
+    </script>
+</body>
+</html>
